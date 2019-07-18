@@ -3,7 +3,23 @@
 # Based on tutorial 1
 ###############################################################################
 
-import scraperwiki
-html = scraperwiki.scrape('http://data.gov')
-print html
+##
+#import scraperwiki
+#html = scraperwiki.scrape('http://data.gov')
+#print html
+##
 
+import scraperwiki
+import csv
+
+url = 'https://github.com/schlos/data-general/raw/master/tijela-2017-test-comma.csv'
+
+data = scraperwiki.scrape(url)
+data = data.splitlines()
+reader = csv.DictReader(data)
+
+for record in reader:
+    #record['Name'] = record['Name'].decode("cp1252")
+    print record 
+    #for scraperwiki only:
+    scraperwiki.sqlite.save(['Value'], record) 
