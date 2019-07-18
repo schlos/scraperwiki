@@ -12,7 +12,7 @@
 import scraperwiki
 import csv
 
-url = 'https://github.com/schlos/data-general/raw/master/tijela-2017-test-comma.csv'
+url = 'http://tjv.pristupinfo.hr/?sort=1&page=1&download'
 
 data = scraperwiki.scrape(url)
 data = data.splitlines()
@@ -24,4 +24,4 @@ for record in csv_reader:
     #record['Name'] = record['Name'].decode("cp1252")
     print record 
     #for scraperwiki only:
-    scraperwiki.sqlite.save(['Adresa'], record) 
+    scraperwiki.sqlite.save(['OIB'], record) 
