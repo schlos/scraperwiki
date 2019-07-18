@@ -16,9 +16,11 @@ url = 'https://github.com/schlos/data-general/raw/master/tijela-2017-test-comma.
 
 data = scraperwiki.scrape(url)
 data = data.splitlines()
-reader = csv.DictReader(data)
+#reader = csv.DictReader(data)
 
-for record in reader:
+csv_reader = csv.DictReader(data, delimiter=';')
+
+for record in csv_reader:
     #record['Name'] = record['Name'].decode("cp1252")
     print record 
     #for scraperwiki only:
